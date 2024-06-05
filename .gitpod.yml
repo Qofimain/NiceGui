@@ -1,6 +1,6 @@
 ports:
   - name: Website preview
-    port: 5173
+    # port: 5173
     onOpen: open-preview
 
 tasks:
