@@ -14,8 +14,8 @@ from nicegui import ui
 # })
 
 url1="https://people.sc.fsu.edu/~jburkardt/data/csv/hw_200.csv"
-df = pd.read_csv(url1)
-
+df = pd.read_csv(url1,header=0,names=['Index', 'Height', 'Weight'], usecols = [0,1,2])
+df = df.assign(BMI = (df['Weight'] * 0.4535)/((df['Height'] * 0.0254)**2)).round(2)
 print(df)
 # df.to_excel('f.xlsx')
 
