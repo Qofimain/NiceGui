@@ -28,12 +28,18 @@ with ui.grid(rows=len(df.index)+1).classes('grid-flow-col'):
     for c, col in enumerate(df.columns):
         ui.label(col).classes('font-bold')
         for r, row in enumerate(df.loc[:, col]):
-            if is_bool_dtype(df[col].dtype):
+            if c == len(df.columns) - 1:
+                print("Massage", df.iloc[r, -1])
+                cls1 = ui.html(f"abc {df.iloc[r, -1]}")
+            elif is_bool_dtype(df[col].dtype):
                 cls = ui.checkbox
             elif is_numeric_dtype(df[col].dtype):
                 cls = ui.number
             else:
                 cls = ui.input
+                
+
+
             cls(value=row, on_change=lambda event, r=r, c=c: update(df=df, r=r, c=c, value=event.value))
 
 ui.run()
