@@ -1,7 +1,7 @@
-ports:
-  - name: Website preview
+# ports:
+  # - name: Website preview
     # port: 5173
-    onOpen: open-preview
+   # onOpen: open-preview
 
 tasks:
   - name: Install Dependencies and Start Dev Server
